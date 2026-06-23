@@ -169,33 +169,3 @@ pytest
 ```
 
 The backend test suite covers auth, book CRUD, progress updates, favorites, status updates, quote permissions, goals and analytics. Tests use SQLite through FastAPI dependency overrides, while the production Docker setup uses PostgreSQL.
-
-## Behavior Notes
-
-- Progress is calculated as `current_page / total_pages * 100`.
-- Setting a book to `completed` sets `current_page` to `total_pages` and fills `finish_date` when it is empty.
-- Setting a completed book back to another status clears `finish_date`; if the current page equals the total, the page is adjusted below the total so the book is no longer complete.
-- Users can only access their own books, quotes and goals.
-
-## Future Improvements
-
-- Public reading profiles
-- Book recommendations
-- External book API integration
-- Dark theme
-- Mobile app
-- Import books from CSV
-- Reading streaks
-- Social sharing
-
-## Push to GitHub
-
-```bash
-cd book-tracker
-git init
-git add .
-git commit -m "Build fullstack Book Tracker"
-git branch -M main
-git remote add origin https://github.com/<your-username>/book-tracker.git
-git push -u origin main
-```
